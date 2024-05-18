@@ -1,11 +1,6 @@
-import { turnsType } from "../App";
 
-export default function GameBoard({onSelectSquare,activePlayerSymbol,turns}:{onSelectSquare:(rowIndex:number,colIndex:number)=>void,activePlayerSymbol:string,turns:turnsType}) {
-  const initialGameBoard = [
-    ['', '', ''],
-    ['', '', ''],
-    ['', '', ''],
-  ];
+export default function GameBoard({onSelectSquare,board}:{onSelectSquare:(rowIndex:number,colIndex:number)=>void,activePlayerSymbol:string,board:string[][]}) {
+
   // const [gameBoard,setGameBoard] = useState(initialGameBoard)
 
   // const handleSelectSquare=(rowIndex:number,colIndex:number)=>{
@@ -16,17 +11,11 @@ export default function GameBoard({onSelectSquare,activePlayerSymbol,turns}:{onS
   //   })
   //   onSelectSquare()
   // }
-  let gameBoard = initialGameBoard
-
-  for(const turn of turns){
-    const {square,player} =turn
-    const {row,col} = square
-    gameBoard[row][col] = player
-  }
+  
 
   return (
     <ol id="game-board">
-      {gameBoard.map((row,rowIndex) => (
+      {board.map((row,rowIndex) => (
         <li key={rowIndex}>
             <ol>
                 {row.map((playerSymbol,colIndex)=>(
