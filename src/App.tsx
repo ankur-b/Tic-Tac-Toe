@@ -1,24 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Player from "./components/Player";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header>
+        <img src="game-logo.png" alt="Hand Drawn tic tac toe game board" />
+        <h1>Tic-Tac-Toe</h1>
       </header>
+      <main>
+        <div id="game-container">
+          <ol id="players">
+            <Player name='Player 1' symbol='X' />
+            <Player name='Player 2' symbol='O' />
+          </ol>
+          Game Board
+        </div>
+      </main>
     </div>
   );
 }
